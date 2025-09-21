@@ -1,0 +1,12 @@
+{
+  "name": "auto-release-template",
+  "version": "0.0.0",
+  "private": "true",
+  "type": "module",
+  "scripts": {
+    "release": "commit-and-tag-version"
+  },
+  "devDependencies": {
+    "commit-and-tag-version": "^12.6.0"
+  }
+}
