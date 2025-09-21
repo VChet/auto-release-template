@@ -1,35 +1,40 @@
 # Auto Release Template
 
-This repository demonstrates a fully automated release workflow using `npm run release` and GitHub Actions.
+Template for automated releases with semantic versioning & GitHub Actions.
 
-⚠️ Make sure GitHub Actions have **write access** enabled, otherwise the workflow will fail. See the [Repository Settings](#repository-settings) section below.
+Prepare release locally, review, then publish automatically on tag push.
 
-## Features
+## How It Works
 
-- **Automatic versioning**: Running `npm run release` automatically determines the next semantic version.
-- **Changelog generation**: Generates a `CHANGELOG.md` based on conventional commits.
-- **Local commit & tag**: All changes, including version bump, changelog update, and Git tag, happen locally — no automatic push is performed, so you can review everything before publishing.
-- **GitHub release on push**: After manually pushing the tag to GitHub, a GitHub Action will automatically create a GitHub release with the generated changelog.
+1. Commit changes following [Conventional Commits][conventional-commits-link].
+1. Run `npm run release`. This bumps the version, updates `CHANGELOG.md`, creates a commit and a Git tag.
+1. Push changes `git push --follow-tags`.
+1. GitHub Action will automatically create and publish a GitHub Release with the changelog.
 
-## Repository Settings
+## Components
 
-This is required so that GitHub Actions can create GitHub releases.
+- [absolute-version/commit-and-tag-version][commit-and-tag-version-link] – bumps version, updates `CHANGELOG.md`, creates a commit and a Git tag.
+- [yashanand1910/standard-release-notes][standard-release-notes-link] – generates release notes.
+- [softprops/action-gh-release][action-gh-release-link] – creates and publishes GitHub Releases.
 
-- Go to `https://github.com/%owner%/%repository%/settings/actions`
-- In **Workflow permissions**, select **Read and write permissions**
+## Setup
 
-## Customizing Releases
+### GitHub Actions
 
-If you want to adjust how releases are generated — for example, changing the commit message format, tag prefix, or which commits appear in the changelog — you can edit the `.versionrc` file.
-See the [Conventional Changelog Configuration Spec][conventional-changelog-spec-link] for all available options.
+⚠️ **Important:** GitHub Actions must have **Read and write** permissions enabled, otherwise the workflow will fail.
 
-## Usage
+- Enable [GitHub Actions][actions-quick-start-link].
+- Go to repository settings → **Actions** → **Workflow permissions**, set to **Read and write permissions**.
+- Ensure developers have push access for tags.
 
-1. Make changes in your repository and commit following the [Conventional Commits convention][conventional-commits-link].
-1. Run the release script `npm run release`.
-1. Push the generated tag to GitHub `git push --follow-tags`.
-1. The GitHub Action will automatically create a GitHub Release with the changelog.
+### Customization
+
+To customize releases (commit message format, tag prefix, or which commits appear in the changelog), edit the `.versionrc` file. Full configuration options are in the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
 
 <!-- Links -->
-[conventional-changelog-spec-link]: https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
 [conventional-commits-link]: https://www.conventionalcommits.org/en/v1.0.0
+[commit-and-tag-version-link]: https://github.com/absolute-version/commit-and-tag-version
+[standard-release-notes-link]: https://github.com/yashanand1910/standard-release-notes
+[action-gh-release-link]: https://github.com/softprops/action-gh-release
+[actions-quick-start-link]: https://docs.github.com/en/actions/get-started/quickstart
+[conventional-changelog-spec-link]: https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
