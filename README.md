@@ -32,6 +32,30 @@ Go to repository settings → **Actions** → **Workflow permissions**, set to *
 
 To customize releases (commit message format, tag prefix, or which commits appear in the changelog), edit the `.versionrc.cjs` file. Full configuration options are in the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
 
+## Publishing to NPM
+
+### NPM package manager
+
+If you want to publish the package automatically, you can use the [npm-publish action][npm-publish-action-link]. Pay attention to the **You probably don't need this!** section if you want to trigger the action differently or use a different package manager. A more advanced scenario using GitHub Release is described below.
+
+### NPM Publishing via GitHub Release & PNPM package manager
+
+#### Draft GitHub Release
+
+If you're confident your releases are ready, you can skip this step.
+
+I suggest adding a `draft` flag to the *Create GitHub Release* step in the `release.yaml` workflow, so that `npm publish` runs only after you manually review and publish the release.
+
+```diff
+  - name: Create GitHub Release
+    with:
+      ...
++     draft: true
+```
+
+#### Workflow
+
+See [publish-workflow-link] for an example workflow that publishes the package after the GitHub Release goes public. This workflow uses `pnpm` and sets the `NPM_CONFIG_PROVENANCE` flag to generate provenance statements. You can read more about [provenance statements here][npm-provenance-link].
 
 <!-- Badges -->
 [version-img]: https://img.shields.io/github/tag/VChet/auto-release-template?label=version&style=flat-square
@@ -44,3 +68,6 @@ To customize releases (commit message format, tag prefix, or which commits appea
 [action-gh-release-link]: https://github.com/softprops/action-gh-release
 [actions-quick-start-link]: https://docs.github.com/en/actions/get-started/quickstart
 [conventional-changelog-spec-link]: https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
+[npm-publish-action-link]: https://github.com/marketplace/actions/npm-publish
+[publish-workflow-link]: ./examples/publish.example.yaml
+[npm-provenance-link]: https://docs.npmjs.com/generating-provenance-statements
