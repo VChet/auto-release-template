@@ -1,14 +1,17 @@
 # Auto Release Template
 
+[![version][version-img]][version-href]
+![prs-welcome][prs-welcome-img]
+
 Template for automated releases with semantic versioning & GitHub Actions.
 
-Prepare release locally, review, then publish automatically on tag push.
+Prepare a release locally, review it, and then create a GitHub Release automatically when a tag is pushed.
 
 ## How It Works
 
 1. Commit changes following [Conventional Commits][conventional-commits-link].
 1. Run `npm run release`. This bumps the version, updates `CHANGELOG.md`, creates a commit and a Git tag.
-1. Push changes `git push --follow-tags`.
+1. Push the changes using `git push --follow-tags`.
 1. GitHub Action will automatically create and publish a GitHub Release with the changelog.
 
 ## Components
@@ -21,16 +24,19 @@ Prepare release locally, review, then publish automatically on tag push.
 
 ### GitHub Actions
 
-⚠️ **Important:** GitHub Actions must have **Read and write** permissions enabled, otherwise the workflow will fail.
+Go to repository settings → **Actions** → **Workflow permissions**, set to **Read and write permissions**.
 
-- Enable [GitHub Actions][actions-quick-start-link].
-- Go to repository settings → **Actions** → **Workflow permissions**, set to **Read and write permissions**.
-- Ensure developers have push access for tags.
+⚠️ GitHub Actions must have **Read and write** permissions enabled, otherwise the workflow will fail.
 
 ### Customization
 
-To customize releases (commit message format, tag prefix, or which commits appear in the changelog), edit the `.versionrc` file. Full configuration options are in the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
+To customize releases (commit message format, tag prefix, or which commits appear in the changelog), edit the `.versionrc.cjs` file. Full configuration options are in the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
 
+
+<!-- Badges -->
+[version-img]: https://img.shields.io/github/tag/VChet/auto-release-template?label=version&style=flat-square
+[version-href]: https://github.com/VChet/auto-release-template/releases
+[prs-welcome-img]: https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square
 <!-- Links -->
 [conventional-commits-link]: https://www.conventionalcommits.org/en/v1.0.0
 [commit-and-tag-version-link]: https://github.com/absolute-version/commit-and-tag-version
