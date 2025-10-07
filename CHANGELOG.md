@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 1.1.1 (2025-10-07)
+
+
+### Documentation
+
+* **readme:** add badges ([ab56ea3](https://github.com/VChet/release-test/commit/ab56ea3c4f0bed305df783e45f4d1442512b2738))
+* **readme:** add Publishing to NPM section ([143aba8](https://github.com/VChet/release-test/commit/143aba83c3517d5cd556c89bf0e4e53875f5da1b))
+
 ## 1.1.0 (2025-10-06)
 
 
