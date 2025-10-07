@@ -66,7 +66,6 @@ See [publish-workflow-link] for an example workflow that publishes the package a
 [commit-and-tag-version-link]: https://github.com/absolute-version/commit-and-tag-version
 [standard-release-notes-link]: https://github.com/yashanand1910/standard-release-notes
 [action-gh-release-link]: https://github.com/softprops/action-gh-release
-[actions-quick-start-link]: https://docs.github.com/en/actions/get-started/quickstart
 [conventional-changelog-spec-link]: https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
 [npm-publish-action-link]: https://github.com/marketplace/actions/npm-publish
 [publish-workflow-link]: ./examples/publish.example.yaml
