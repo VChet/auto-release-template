@@ -5,14 +5,14 @@
 
 Template for automated releases with semantic versioning & GitHub Actions.
 
-Prepare a release locally, review it, and then create a GitHub Release automatically when a tag is pushed.
+Prepare a release locally, review it, and the workflow will automatically create a GitHub Release when a tag is pushed.
 
 ## How It Works
 
-1. Commit changes following [Conventional Commits][conventional-commits-link].
-1. Run `npm run release`. This bumps the version, updates `CHANGELOG.md`, creates a commit and a Git tag.
+1. Commit your changes following the [Conventional Commits][conventional-commits-link].
+1. Run `npm run release`, which bumps the version, updates `CHANGELOG.md`, creates a commit, and adds a Git tag.
 1. Push the changes using `git push --follow-tags`.
-1. GitHub Action will automatically create and publish a GitHub Release with the changelog.
+1. The GitHub Action detects the new tag and publishes a GitHub Release with the generated changelog.
 
 ## Components
 
@@ -22,40 +22,26 @@ Prepare a release locally, review it, and then create a GitHub Release automatic
 
 ## Setup
 
-### GitHub Actions
+### GitHub Actions Permissions
 
-Go to repository settings → **Actions** → **Workflow permissions**, set to **Read and write permissions**.
+Repository → *Settings* → *Actions* → *Workflow permissions* → set to **Read and write permissions**.
 
-⚠️ GitHub Actions must have **Read and write** permissions enabled, otherwise the workflow will fail.
+⚠️ Releases will fail if this is not enabled.
 
 ### Customization
 
-To customize releases (commit message format, tag prefix, or which commits appear in the changelog), edit the `.versionrc.cjs` file. Full configuration options are in the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
+To customize commit message formatting, tag prefix, or which commits appear in the changelog, edit the [.versionrc](.versionrc.cjs) file.
 
-## Publishing to NPM
+For the full list of supported options, check the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
 
-### NPM package manager
+### Advanced
 
-If you want to publish the package automatically, you can use the [npm-publish action][npm-publish-action-link]. Pay attention to the **You probably don't need this!** section if you want to trigger the action differently or use a different package manager. A more advanced scenario using GitHub Release is described below.
+More use cases and workflow examples are documented in the wiki:
 
-### NPM Publishing via GitHub Release & PNPM package manager
-
-#### Draft GitHub Release
-
-If you're confident your releases are ready, you can skip this step.
-
-I suggest adding a `draft` flag to the *Create GitHub Release* step in the `release.yaml` workflow, so that `npm publish` runs only after you manually review and publish the release.
-
-```diff
-  - name: Create GitHub Release
-    with:
-      ...
-+     draft: true
-```
-
-#### Workflow
-
-See [publish-workflow-link] for an example workflow that publishes the package after the GitHub Release goes public. This workflow uses `pnpm` and sets the `NPM_CONFIG_PROVENANCE` flag to generate provenance statements. You can read more about [provenance statements here][npm-provenance-link].
+- [Automated NPM publishing with `npm`][wiki-npm-link]
+- [Automated NPM publishing with `pnpm`][wiki-pnpm-link]
+- [Draft Releases][wiki-draft-link]
+- [Provenance statements][wiki-provenance-link]
 
 <!-- Badges -->
 [version-img]: https://img.shields.io/github/tag/VChet/auto-release-template?label=version&style=flat-square
@@ -67,6 +53,8 @@ See [publish-workflow-link] for an example workflow that publishes the package a
 [standard-release-notes-link]: https://github.com/yashanand1910/standard-release-notes
 [action-gh-release-link]: https://github.com/softprops/action-gh-release
 [conventional-changelog-spec-link]: https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
-[npm-publish-action-link]: https://github.com/marketplace/actions/npm-publish
-[publish-workflow-link]: ./examples/publish.example.yaml
-[npm-provenance-link]: https://docs.npmjs.com/generating-provenance-statements
+<!-- Wiki -->
+[wiki-npm-link]: https://github.com/VChet/auto-release-template/wiki/Publishing-to-NPM
+[wiki-pnpm-link]: https://github.com/VChet/auto-release-template/wiki/Publishing-with-PNPM
+[wiki-draft-link]: https://github.com/VChet/auto-release-template/wiki/Draft-Releases
+[wiki-provenance-link]: https://github.com/VChet/auto-release-template/wiki/Provenance-Statements
