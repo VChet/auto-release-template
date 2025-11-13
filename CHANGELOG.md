@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 1.2.0 (2025-11-13)
+
+
+### Documentation
+
+* **readme:** move advanced settings to wiki, remove example file ([428420f](https://github.com/VChet/release-test/commit/428420fabbeff7bb840f6fb3f939c97e4252f542))
+
 ## 1.1.1 (2025-10-07)
 
 
