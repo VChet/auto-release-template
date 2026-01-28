@@ -30,18 +30,13 @@ Repository → *Settings* → *Actions* → *Workflow permissions* → set to **
 
 ### Customization
 
-To customize commit message formatting, tag prefix, or which commits appear in the changelog, edit the [.versionrc](.versionrc.cjs) file.
+To customize commit message formatting, tag prefix, or which commits appear in the changelog, edit the [.versionrc.cjs](.versionrc.cjs) file.
 
 For the full list of supported options, check the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
 
 ### Advanced
 
-More use cases and workflow examples are documented in the wiki:
-
-- [Automated NPM publishing with `npm`][wiki-npm-link]
-- [Automated NPM publishing with `pnpm`][wiki-pnpm-link]
-- [Draft Releases][wiki-draft-link]
-- [Provenance statements][wiki-provenance-link]
+More use cases and workflow examples are documented [in the wiki][wiki-link].
 
 <!-- Badges -->
 [version-img]: https://img.shields.io/github/tag/VChet/auto-release-template?label=version&style=flat-square
@@ -54,7 +49,4 @@ More use cases and workflow examples are documented in the wiki:
 [action-gh-release-link]: https://github.com/softprops/action-gh-release
 [conventional-changelog-spec-link]: https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/README.md
 <!-- Wiki -->
-[wiki-npm-link]: https://github.com/VChet/auto-release-template/wiki/Publishing-to-NPM
-[wiki-pnpm-link]: https://github.com/VChet/auto-release-template/wiki/Publishing-with-PNPM
-[wiki-draft-link]: https://github.com/VChet/auto-release-template/wiki/Draft-Releases
-[wiki-provenance-link]: https://github.com/VChet/auto-release-template/wiki/Provenance-Statements
+[wiki-link]: https://github.com/VChet/auto-release-template/wiki
