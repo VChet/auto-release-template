@@ -1,7 +1,7 @@
 {
   "name": "auto-release-template",
   "version": "1.2.0",
-  "private": "true",
+  "private": true,
   "type": "module",
   "scripts": {
     "release": "commit-and-tag-version"
