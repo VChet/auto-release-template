@@ -20,15 +20,7 @@ Prepare a release locally, review it, and the workflow will automatically create
 - [yashanand1910/standard-release-notes][standard-release-notes-link] – generates release notes.
 - [softprops/action-gh-release][action-gh-release-link] – creates and publishes GitHub Releases.
 
-## Setup
-
-### GitHub Actions Permissions
-
-Repository → *Settings* → *Actions* → *Workflow permissions* → set to **Read and write permissions**.
-
-⚠️ Releases will fail if this is not enabled.
-
-### Customization
+## Customization
 
 To customize commit message formatting, tag prefix, or which commits appear in the changelog, edit the [.versionrc.cjs](.versionrc.cjs) file.
 
