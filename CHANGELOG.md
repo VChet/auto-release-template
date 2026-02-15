@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## 1.2.1 (2026-02-15)
+
+
+### Documentation
+
+* **changelog, readme:** fix links ([fca7fd6](https://github.com/VChet/auto-release-template/commit/fca7fd6dc4ad177d9f280818f34252ee224c93c7))
+
+
+### Continuous Integration
+
+* **release:** add permissions ([fe1129a](https://github.com/VChet/auto-release-template/commit/fe1129a2fa06f30379fae08d539a1a182d274387))
+* **release:** remove `tag_name` param ([ef85e21](https://github.com/VChet/auto-release-template/commit/ef85e21a219415c5eef17b615fd8f5d0e91c11ea))
+* **release:** use more strict tag mask ([624d6a1](https://github.com/VChet/auto-release-template/commit/624d6a1321c5aca721428a2de69cd7cde4044f24))
+
 ## 1.2.0 (2025-11-13)
 
 
