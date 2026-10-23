@@ -3,9 +3,7 @@
 [![version][version-img]][version-href]
 ![prs-welcome][prs-welcome-img]
 
-Template for automated releases with semantic versioning & GitHub Actions.
-
-Prepare a release locally, review it, and the workflow will automatically create a GitHub Release when a tag is pushed.
+Creates GitHub Releases automatically. Package publishing is documented separately [in the Wiki][wiki-link].
 
 ## How It Works
 
@@ -25,10 +23,6 @@ Prepare a release locally, review it, and the workflow will automatically create
 To customize commit message formatting, tag prefix, or which commits appear in the changelog, edit the [.versionrc.cjs](.versionrc.cjs) file.
 
 For the full list of supported options, check the [Conventional Changelog Config Spec][conventional-changelog-spec-link].
-
-### Advanced
-
-More use cases and workflow examples are documented [in the wiki][wiki-link].
 
 <!-- Badges -->
 [version-img]: https://img.shields.io/github/tag/VChet/auto-release-template?label=version&style=flat-square
